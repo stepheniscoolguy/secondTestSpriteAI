@@ -189,16 +189,26 @@
 ---
 # removeBackgroundColor index.js
 ## Imported Code Object
-The `removeBackgroundColor` function in this code snippet is an asynchronous function designed to remove a specific background color from an image. Here's a concise explanation of its purpose and functionality:
+Certainly! Here's a concise explanation of the `removeBackgroundColor` function in the provided code snippet:
 
-1. It takes an input image file, processes it, and saves the result to an output file.
-2. The function targets a specific color (defined by `targetColor`) and removes it from the image.
-3. It uses a color threshold to determine how closely a pixel's color must match the target color to be removed.
-4. The function scans through each pixel of the image, comparing its color to the target color.
-5. If a pixel's color is within the specified threshold, it's made transparent by setting its alpha value to 0.
-6. The resulting image, with the background color removed, is then saved to the specified output path.
+The `removeBackgroundColor` function is an asynchronous function that processes an image to remove a specified background color. It takes the following parameters:
 
-In essence, this function automates the process of removing a specific background color from an image, creating a transparent background where that color was present.
+1. `inputPath`: The path to the input image file.
+2. `outputPath`: The path where the processed image will be saved.
+3. `targetColor`: The color to be removed from the background.
+4. `colorThreshold`: A tolerance value for color matching (default is 0).
+5. `options`: Additional options (not used in the provided code).
+
+The function performs the following steps:
+
+1. Reads the input image using Jimp library.
+2. Converts the target color to a hex value.
+3. Scans each pixel of the image.
+4. Compares each pixel's color to the target color.
+5. If the color difference is within the threshold, it sets the pixel's alpha channel to 0 (making it transparent).
+6. Saves the processed image to the specified output path.
+
+This function is useful for removing specific background colors from images, effectively creating transparency where the target color was present.
 
 ### Third Party Libaries
 
