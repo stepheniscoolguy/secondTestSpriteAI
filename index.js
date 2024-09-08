@@ -104,7 +104,7 @@ export const sprite = {
           let grayImageBuffer = await sharp(imgBuffer).ensureAlpha().greyscale().toBuffer()
           let base64Image = grayImageBuffer.toString('base64');
 
-          // If you need a data URL, you can prepend the appropriate prefix
+          // If you need a data URL, you can prepend the appropriate prefixsddsds
           let imageDataUrl = `data:image/jpeg;base64,${base64Image}`;
           // const base64Image = encodeImage("./test.png");
           const result = await openAiObject.chat.completions.create({
