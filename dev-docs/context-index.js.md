@@ -409,23 +409,21 @@
 ---
 # removeBackgroundColor index.js
 ## Imported Code Object
-The `removeBackgroundColor` function in this code snippet is an asynchronous function designed to remove a specified background color from an image. Here's a concise explanation of its purpose and functionality:
+The `removeBackgroundColor` function in this code snippet is an asynchronous function designed to remove a specific background color from an image. Here's a concise explanation of its purpose and functionality:
 
-1. It takes an input image file, processes it to remove a target background color, and saves the result to an output file.
+1. It takes an input image file path, output file path, target color to remove, and optional parameters like color threshold and additional options.
 
-2. The function uses the Jimp library to read and manipulate the image.
+2. The function uses the Jimp library to read and process the image.
 
 3. It scans through each pixel of the image, comparing its color to the specified target color.
 
-4. If a pixel's color is within a certain threshold of the target color, it makes that pixel transparent by setting its alpha value to 0.
+4. If a pixel's color is within the specified threshold of the target color, it sets that pixel's alpha value to 0, making it transparent.
 
-5. The color comparison is done using Jimp's color difference calculation.
+5. This effectively removes the background of the image by making all pixels of the target color (within the threshold) transparent.
 
-6. After processing all pixels, it saves the modified image to the specified output path.
+6. Finally, it saves the processed image to the specified output path and returns the result.
 
-7. The function allows customization of the target color, color threshold, and other options.
-
-In essence, this function automates the process of removing a specific background color from an image, which can be useful for tasks like creating transparent PNGs or isolating subjects in photos.
+In essence, this function automates the process of removing a specific background color from an image, useful for tasks like creating transparent PNG images or removing unwanted backgrounds from photos.
 
 ### Third Party Libaries
 
@@ -433,22 +431,25 @@ Yes, this function uses the third-party library Jimp for image processing and ma
 
 ### Code Example
 
-Certainly! Here's a brief code example of how to use the `removeBackgroundColor` function:
+Certainly! Here's a brief code example demonstrating how to use the `removeBackgroundColor` function:
 
 ```javascript
-const removeBackgroundColor = require('./removeBackgroundColor'); // Assuming the function is in a separate file
+const { removeBackgroundColor } = require('./your-module'); // Adjust the path as needed
 
 async function main() {
   try {
     const inputPath = 'path/to/input/image.jpg';
     const outputPath = 'path/to/output/image.png';
-    const targetColor = '#FFFFFF'; // White background color
-    const colorThreshold = 30; // Adjust this value to control color matching sensitivity
+    const targetColor = '#FFFFFF'; // White background
+    const colorThreshold = 30; // Adjust as needed
 
-    await removeBackgroundColor(inputPath, outputPath, targetColor, colorThreshold);
+    const options = {}; // Additional options if needed
+
+    await removeBackgroundColor(inputPath, outputPath, targetColor, colorThreshold, options);
+    
     console.log('Background removal completed successfully!');
   } catch (error) {
-    console.error('An error occurred:', error);
+    console.error('Error removing background:', error);
   }
 }
 
@@ -457,23 +458,14 @@ main();
 
 In this example:
 
-1. We import the `removeBackgroundColor` function (assuming it's in a separate file).
-
+1. We import the `removeBackgroundColor` function from your module.
 2. We define an async `main` function to use `await` with the asynchronous `removeBackgroundColor` function.
+3. We specify the input image path, output image path, target color to remove (white in this case), and a color threshold.
+4. We call the `removeBackgroundColor` function with these parameters.
+5. If successful, it logs a completion message; if there's an error, it logs the error.
+6. Finally, we call the `main` function to execute the code.
 
-3. We specify the `inputPath` of the original image and the `outputPath` for the processed image.
-
-4. We set the `targetColor` to remove (in this case, white).
-
-5. We set a `colorThreshold` to control how strict the color matching should be. A higher value will remove colors that are close to the target color.
-
-6. We call the `removeBackgroundColor` function with these parameters.
-
-7. If successful, it logs a success message. If an error occurs, it logs the error.
-
-8. Finally, we call the `main` function to execute the code.
-
-Remember to adjust the file paths, target color, and color threshold according to your specific needs. Also, ensure that you have the necessary dependencies (like `jimp`) installed in your project.
+Make sure to adjust the file paths, target color, and color threshold according to your specific needs. Also, ensure that the Jimp library is installed in your project (`npm install jimp`) before running this code.
 
 # encodeImage index.js
 ## Imported Code Object
