@@ -22,5 +22,5 @@
         "function"
     ]
   },
-  "integrations": ["notion"]
+  "integrations": ["google_drive"]
 }
