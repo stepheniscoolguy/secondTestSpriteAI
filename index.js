@@ -264,3 +264,32 @@ export const sprite = {
         }
     }
 }
+
+async function generateCharacterPortrait(description, options = {}) {
+  const openAiObject = new OpenAI();
+  const dalle3 = openAiObject.images;
+  const response = await dalle3.generate({
+    model: "dall-e-3",
+    prompt: `Generate a detailed character portrait of ${description}. The style should be realistic with a focus on facial features and expressions.`,
+    n: 1,
+    size: options?.size || "1024x1024",
+  });
+
+  console.log(response);
+  const res = await axios.get(response.data[0].url, { responseType: 'arraybuffer' });
+  const imgBuffer = Buffer.from(res.data);
+
+  if (options?.save) {
+    const currentWorkingDirectory = process.cwd();
+    let pictureName = description.replace(/\s+/g, '');
+    let pictureFilename = `${currentWorkingDirectory}${path.sep}assets${path.sep}${pictureName}_portrait.png`;
+    await sharp(imgBuffer).toFile(pictureFilename);
+  }
+
+  let base64Image = imgBuffer.toString('base64');
+  let imageDataUrl = `data:image/jpeg;base64,${base64Image}`;
+
+  return { image: imageDataUrl, buffer: imgBuffer };
+}
+
+sprite.generateCharacterPortrait = generateCharacterPortrait;
