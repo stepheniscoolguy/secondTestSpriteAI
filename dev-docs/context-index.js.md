@@ -1454,47 +1454,50 @@ Remember to handle the asynchronous nature of the function by using `async/await
 ---
 # generateCharacterPortrait index.js
 ## Imported Code Object
-The `generateCharacterPortrait` function is an asynchronous function that generates a character portrait based on a given description using OpenAI's DALL-E 3 image generation model. Here's a concise explanation of its functionality:
+The `generateCharacterPortrait` function is an asynchronous function that uses OpenAI's DALL-E 3 model to generate a character portrait based on a given description. Here's a concise explanation of its functionality:
 
-1. It initializes an OpenAI client and uses the DALL-E 3 model to generate an image based on the provided description.
+1. It initializes the OpenAI API client and DALL-E 3 image generation model.
+2. It sends a request to DALL-E 3 to generate an image based on the provided description.
+3. It retrieves the generated image URL from the DALL-E 3 response.
+4. It downloads the image as a buffer.
+5. If specified in the options, it saves the image to a local file.
+6. It converts the image buffer to a base64-encoded data URL.
+7. Finally, it returns an object containing the image data URL and the image buffer.
 
-2. The function sends a request to generate a realistic character portrait with focus on facial features and expressions.
-
-3. It retrieves the generated image URL from the response and fetches the image data.
-
-4. If the `save` option is set, it saves the image as a PNG file in the `assets` folder of the current working directory.
-
-5. It converts the image to a base64-encoded data URL and also keeps the raw image buffer.
-
-6. Finally, it returns an object containing both the base64 data URL of the image and the raw image buffer.
-
-This function essentially provides a way to generate and optionally save character portraits programmatically using AI-based image generation.
+This function essentially automates the process of generating and processing a character portrait using AI, making it easy to integrate into applications that require dynamic character imagery.
 
 ### Third Party Libaries
 
-Yes, this function uses third-party libraries and APIs, specifically OpenAI's API (for DALL-E 3 image generation), Axios (for HTTP requests), and Sharp (for image processing).
+Yes, this function uses third-party APIs and libraries, including OpenAI's API (for DALL-E 3), Axios for HTTP requests, and Sharp for image processing.
 
 ### Code Example
 
 Certainly! Here's a brief code example of how to use the `generateCharacterPortrait` function:
 
 ```javascript
-const { generateCharacterPortrait } = require('./your-module-file'); // Adjust the path as needed
+const dotenv = require('dotenv');
+dotenv.config();
 
 async function main() {
   try {
-    // Example 1: Generate a portrait without saving
-    const result1 = await generateCharacterPortrait("a young wizard with glasses and a lightning scar");
-    console.log("Generated image data URL:", result1.image);
-    console.log("Image buffer length:", result1.buffer.length);
+    // Define the character description
+    const characterDescription = "a young wizard with round glasses and a lightning scar on his forehead";
 
-    // Example 2: Generate a portrait and save it
-    const result2 = await generateCharacterPortrait("an elven archer with long blonde hair", { save: true });
-    console.log("Generated and saved image data URL:", result2.image);
+    // Optional: Specify additional options
+    const options = {
+      size: "1024x1024",
+      save: true
+    };
 
-    // Example 3: Generate a portrait with custom size
-    const result3 = await generateCharacterPortrait("a dwarf warrior with a braided beard", { size: "512x512" });
-    console.log("Generated image data URL (custom size):", result3.image);
+    // Call the generateCharacterPortrait function
+    const result = await generateCharacterPortrait(characterDescription, options);
+
+    // The result contains the image as a data URL and as a buffer
+    console.log("Image Data URL:", result.image);
+    console.log("Image Buffer Length:", result.buffer.length);
+
+    // If options.save is true, the image will be saved in the assets folder
+    console.log("Image saved in the assets folder (if save option was true)");
 
   } catch (error) {
     console.error("Error generating character portrait:", error);
@@ -1504,28 +1507,16 @@ async function main() {
 main();
 ```
 
-In this example:
+To use this code:
 
-1. We import the `generateCharacterPortrait` function from your module file.
+1. Make sure you have the necessary dependencies installed (`openai`, `axios`, `sharp`, `dotenv`).
+2. Set up your OpenAI API key in a `.env` file (OPENAI_API_KEY=your_api_key_here).
+3. Ensure the `generateCharacterPortrait` function is in the same file or properly imported.
+4. Run the script.
 
-2. We define an async `main` function to use `await` with our asynchronous `generateCharacterPortrait` function.
+This example creates a portrait of a young wizard (presumably Harry Potter) and saves it to the assets folder. The function returns both a data URL of the image (which can be used directly in HTML) and a buffer of the image data.
 
-3. We demonstrate three use cases:
-   - Generating a portrait without saving it
-   - Generating a portrait and saving it to a file
-   - Generating a portrait with a custom size
+Remember to handle the returned promise appropriately and catch any errors that might occur during the API call or image processing.
 
-4. For each case, we log the resulting image data URL and/or the buffer length.
-
-5. We wrap everything in a try-catch block to handle any errors that might occur during the process.
-
-6. Finally, we call the `main` function to execute our examples.
-
-Remember to replace `'./your-module-file'` with the actual path to the file containing your `generateCharacterPortrait` function. Also, ensure that you have all the necessary dependencies installed (OpenAI, axios, sharp) and that you've set up your OpenAI API key correctly in your environment.
-
-
-  
-
-  
 
   
