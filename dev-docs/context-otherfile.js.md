@@ -205,69 +205,75 @@ Make sure to replace `'path/to/your/image.jpg'` with the actual path to the imag
 
 # generateSprite otherfile.js
 ## Imported Code Object
-The `generateSprite` function in this code snippet is an asynchronous function that generates a sprite sheet image using AI-powered image generation and analysis. Here's a concise explanation of its main components:
+The `generateSprite` function in this code snippet is an asynchronous function that generates sprite images using AI models and processes them for use in game development. Here's a concise explanation of its main features:
 
-1. It uses OpenAI's DALL-E 3 to generate a 6-frame sprite sheet based on a given description.
-2. The generated image is processed and converted to grayscale.
-3. The function then uses GPT-4 Vision to analyze the image and determine appropriate frame dimensions for use in Phaser.js.
-4. Finally, it uses GPT-3.5 Turbo to format the frame dimension information as JSON.
+1. It uses OpenAI's DALL-E 3 model to generate a sprite sheet based on a given description.
 
-The function can optionally save the generated image and supports multiple iterations of this process. It returns an object containing the frame dimension information and the base64-encoded image data.
+2. The function can generate multiple iterations if specified in the options.
+
+3. It processes the generated image:
+   - Converts it to grayscale
+   - Optionally saves it to a file
+   - Converts it to a base64-encoded data URL
+
+4. It then uses OpenAI's GPT-4 Vision model to analyze the image and determine appropriate frame dimensions for use in Phaser.js.
+
+5. Finally, it uses GPT-3.5 Turbo to format the frame dimension information as JSON.
+
+6. The function returns an object containing the processed image data URL and the frame dimension information.
+
+This function essentially automates the process of creating and preparing sprite sheets for game development, leveraging AI for both image generation and analysis.
 
 ### Third Party Libaries
 
-Yes, this function uses third-party APIs and libraries. Specifically, it utilizes the OpenAI API for image generation (DALL-E 3) and text completions (GPT-4 Vision and GPT-3.5 Turbo), as well as the Axios library for making HTTP requests and the Sharp library for image processing.
+Yes, this function uses third-party APIs and libraries. It utilizes OpenAI's API for DALL-E 3 image generation and GPT-4 Vision for image analysis, as well as libraries like axios for HTTP requests and sharp for image processing.
 
 ### Code Example
 
 Certainly! Here's a brief code example of how to use the `generateSprite` function:
 
 ```javascript
-// Assuming the function is part of a class called AISprite
-const aiSprite = new AISprite();
+const AiSprite = require('./AiSprite'); // Assuming the class is in a file named AiSprite.js
 
-// Basic usage
-async function generateBasicSprite() {
-  try {
-    const result = await aiSprite.generateSprite("a cartoon cat");
-    console.log("Generated sprite:", result);
-    // result will contain 'messages' with frame dimensions and 'image' with the base64 image data
-  } catch (error) {
-    console.error("Error generating sprite:", error);
-  }
+async function main() {
+    const aiSprite = new AiSprite();
+
+    try {
+        // Basic usage
+        const result = await aiSprite.generateSprite("a cute cat");
+        console.log("Generated sprite:", result);
+
+        // With options
+        const resultWithOptions = await aiSprite.generateSprite("a robot", {
+            size: "512x512",
+            save: true
+        });
+        console.log("Generated sprite with options:", resultWithOptions);
+
+        // With iterations
+        const iterationsResult = await aiSprite.generateSprite("a superhero", {
+            iterations: 3
+        });
+        console.log("Generated sprites with iterations:", iterationsResult);
+    } catch (error) {
+        console.error("Error generating sprite:", error);
+    }
 }
 
-// Usage with options
-async function generateSpriteWithOptions() {
-  try {
-    const options = {
-      size: "512x512",
-      save: true,
-      iterations: 3
-    };
-    const results = await aiSprite.generateSprite("a pixel art robot", options);
-    console.log("Generated sprites:", results);
-    // results will be an array of objects, each containing 'messages' and 'image'
-  } catch (error) {
-    console.error("Error generating sprites:", error);
-  }
-}
-
-// Call the functions
-generateBasicSprite();
-generateSpriteWithOptions();
+main();
 ```
 
 In this example:
 
-1. We create an instance of the class containing the `generateSprite` method.
-2. We demonstrate two ways of using the function:
+1. We import the `AiSprite` class (assuming it's exported from a file).
+2. We create an instance of `AiSprite`.
+3. We demonstrate three ways to use the `generateSprite` method:
    - Basic usage with just a description.
-   - Advanced usage with options (size, save, and iterations).
-3. The function returns an object (or array of objects if using iterations) containing the frame dimensions in the `messages` property and the base64 encoded image in the `image` property.
-4. We wrap the calls in try-catch blocks to handle any potential errors.
+   - With options for size and saving the file.
+   - With iterations to generate multiple sprites.
+4. We log the results or any errors that occur.
 
-Remember to handle the asynchronous nature of the function using async/await or promises in your actual implementation.
+Remember to handle the asynchronous nature of the function using `async/await` or promises. Also, make sure you have all the necessary dependencies installed (like `axios`, `sharp`, and `openai`) and properly configured (especially the OpenAI API key).
 
 # generateHouseAsset otherfile.js
 ## Imported Code Object
