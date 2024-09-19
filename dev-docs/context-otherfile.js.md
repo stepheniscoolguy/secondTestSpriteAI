@@ -353,5 +353,69 @@ In this example:
 
 Remember to handle the asynchronous nature of the function calls appropriately in your actual implementation, and ensure you have the necessary OpenAI configuration set up for the DALL-E API to work.
 
+---
+# generateCharacterPortrait otherfile.js
+## Imported Code Object
+The `generateCharacterPortrait` function is an asynchronous function that generates a character portrait image based on a given description. Here's a concise explanation of its functionality:
+
+1. It uses OpenAI's DALL-E 3 model to generate an image based on the provided description.
+2. The function sends a request to the DALL-E API with a prompt that includes the description and specifies a realistic style focusing on facial features.
+3. It retrieves the generated image URL from the API response.
+4. The image is downloaded using axios and converted to a buffer.
+5. If the `save` option is true, the image is saved as a PNG file in the `assets` folder of the current working directory.
+6. The function returns an object containing the image as a base64-encoded data URL and as a buffer.
+
+This function essentially automates the process of generating and retrieving a character portrait image using AI, with options for saving the image and customizing its size.
+
+### Third Party Libaries
+
+Yes, this function uses third-party APIs and libraries. It utilizes the OpenAI API (specifically DALL-E 3 for image generation), axios for HTTP requests, and sharp for image processing.
+
+### Code Example
+
+Certainly! Here's a brief code example demonstrating how to use the `generateCharacterPortrait` function:
+
+```javascript
+const { generateCharacterPortrait } = require('./your-module'); // Adjust the import path as needed
+
+async function main() {
+  try {
+    const description = "A wise old wizard with a long white beard and piercing blue eyes";
+    const options = {
+      size: "1024x1024",
+      save: true
+    };
+
+    const result = await generateCharacterPortrait(description, options);
+
+    console.log("Image generated successfully!");
+    console.log("Image Data URL:", result.image.substring(0, 50) + "..."); // Displaying first 50 characters of the Data URL
+    console.log("Image Buffer Size:", result.buffer.length, "bytes");
+
+    // You can now use the result.image (Data URL) or result.buffer (Buffer) as needed
+    // For example, you could send the image to a front-end application or further process it
+
+  } catch (error) {
+    console.error("Error generating character portrait:", error);
+  }
+}
+
+main();
+```
+
+In this example:
+
+1. We import the `generateCharacterPortrait` function from wherever it's defined.
+2. We define a `main` function to use async/await syntax.
+3. We provide a description of the character we want to generate.
+4. We set options for the image size and to save the file locally.
+5. We call `generateCharacterPortrait` with the description and options.
+6. We log some information about the generated image, including a snippet of the Data URL and the size of the image buffer.
+7. We wrap everything in a try/catch block to handle any errors.
+
+Remember to handle the returned promise appropriately, either by using async/await (as shown) or by using `.then()` and `.catch()`.
+
+Also, ensure you have the necessary dependencies installed (like `axios` and `sharp`) and that you've set up your OpenAI API key correctly in your environment variables or configuration.
+
 
   
