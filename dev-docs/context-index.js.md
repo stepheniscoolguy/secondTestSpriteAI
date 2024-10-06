@@ -1,4 +1,3 @@
----
 # removeBackgroundColor index.js
 ## Imported Code Object
 The `removeBackgroundColor` function is an asynchronous function designed to remove a specific background color from an image. Here's a concise explanation of its purpose and functionality:
