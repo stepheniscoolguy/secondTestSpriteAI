@@ -1611,28 +1611,7 @@ Remember to handle the returned promise appropriately and catch any errors that 
   
 
   
----
-# High Level Context
-## context
-<response>
-This index.js file contains a module for generating and manipulating sprite images and character portraits using AI image generation and processing tools. Key features include:
 
-1. A function to remove background colors from images
-2. A function to encode images to base64
-3. A function to get unique colors from an image
-4. A main "sprite" object with methods for:
-   - Generating sprite sheets for game characters
-   - Creating house assets for games
-   - Generating character portraits
-5. Integration with OpenAI's DALL-E 3 for image generation
-6. Image processing using libraries like sharp and Jimp
-7. Interaction with GPT-4 Vision and GPT-3.5 models for analyzing generated images
-8. Options for saving generated images and handling multiple iterations
-
-The code is designed to work with game development, particularly for use with Phaser.js, and includes features for creating and optimizing game assets programmatically.
-</response>
-
----
 
 
   
