@@ -1,5 +1,10 @@
 
 
+  ---
+# High Level Context
+ + ## context
+ + $[docContent} + 
+
   
 
   
@@ -1565,65 +1570,5 @@ To use this code:
 This example creates a portrait of a young wizard (presumably Harry Potter) and saves it to the assets folder. The function returns both a data URL of the image (which can be used directly in HTML) and a buffer of the image data.
 
 Remember to handle the returned promise appropriately and catch any errors that might occur during the API call or image processing.
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
 
   
