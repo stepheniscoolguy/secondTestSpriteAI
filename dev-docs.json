@@ -15,6 +15,7 @@
   },
   "ai": {
     "populateDoc": "dev-docs/populate.md",
+    "contextDirs": ["tests"],
     "docSubFolder": "Sprite methods and Functions",
     "internalTypeFilters": [
         "class",
