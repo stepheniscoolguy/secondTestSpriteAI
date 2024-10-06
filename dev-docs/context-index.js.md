@@ -1,3 +1,4 @@
+
 ---
 # removeBackgroundColor index.js
 ## Imported Code Object
