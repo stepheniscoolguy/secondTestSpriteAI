@@ -1,4 +1,21 @@
 
+
+  ---
+# High Level Context
+## context
+This index.js file contains code for a sprite generation system using AI image generation and processing. It includes several key functions:
+
+1. removeBackgroundColor: Removes a specified background color from an image.
+2. encodeImage: Encodes an image file to base64.
+3. getUniqueColors: Extracts unique colors from an image.
+4. generateSprite: The main function that generates sprite sheets using OpenAI's DALL-E 3 model. It creates walking animation frames for characters based on a description.
+5. generateHouseAsset: Generates 2D assets for houses or buildings using DALL-E 3.
+6. generateCharacterPortrait: Creates detailed character portraits using DALL-E 3.
+
+The code integrates various libraries like OpenAI, axios, sharp, and Jimp for image processing and API interactions. It also includes options for saving generated images, converting them to grayscale, and analyzing frame dimensions for use in game development with Phaser.js.
+
+The system is designed to be flexible, allowing for multiple iterations of sprite generation and customization of image sizes and other parameters.
+
 ---
 # removeBackgroundColor index.js
 ## Imported Code Object
