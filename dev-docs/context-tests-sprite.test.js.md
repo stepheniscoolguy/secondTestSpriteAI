@@ -1,5 +1,19 @@
 
 
+  ---
+# High Level Context
+## context
+This file contains unit tests for a sprite generation module. It uses Jest as the testing framework and includes tests for two main functions: generateSprite and generateHouseAsset.
+
+The tests check if:
+1. The generateSprite function produces the expected output, including correct frame dimensions and image size.
+2. The generateHouseAsset function successfully generates a house asset.
+
+The tests use mocking and assertions to verify the behavior of these functions, ensuring they return the expected data structures and image properties. The file also uses external libraries like 'sharp' for image processing and analysis in the tests.
+
+These tests are designed to ensure the reliability and correctness of the sprite generation functionality in the main application.
+
+
   
 
   
@@ -70,6 +84,5 @@ The `describe` blocks group related tests together, and the `it` blocks define i
 For example, `expect(result).toBeDefined()` checks if the `result` is not undefined, and `expect(result.length).toBe(1)` checks if the `result` array has exactly one element.
 
 Remember to implement the actual `generateSprite` and `generateHouseAsset` functions in your `sprite.js` file to make the tests pass.
-
 
   
