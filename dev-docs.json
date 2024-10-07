@@ -12,16 +12,5 @@
         }
       ]
     }
-  },
-  "ai": {
-    "populateDoc": "dev-docs/populate.md",
-    "contextDirs": ["tests"],
-    "docSubFolder": "Sprite methods and Functions",
-    "internalTypeFilters": [
-        "class",
-        "method",
-        "function"
-    ]
-  },
-  "integrations": ["google_drive"]
+  }
 }
