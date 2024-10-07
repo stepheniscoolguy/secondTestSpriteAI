@@ -1,0 +1,27 @@
+{
+  "quickDoc": {
+    "variablesAndFunctions": {
+      "prompts": [
+        {
+          "question": "In a brief sentence, does this function use any third party APIs or libaries",
+          "title": "Third Party Libaries"
+        },
+        {
+          "question": "Can you provide a brief code example of how to use the code?",
+          "title": "Code Example"
+        }
+      ]
+    }
+  },
+  "ai": {
+    "populateDoc": "dev-docs/populate.md",
+    "contextDirs": ["tests"],
+    "docSubFolder": "Sprite methods and Functions",
+    "internalTypeFilters": [
+        "class",
+        "method",
+        "function"
+    ]
+  },
+  "integrations": ["google_drive"]
+}
