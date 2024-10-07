@@ -178,4 +178,69 @@ main().catch(console.error);
 
 This assumes that your `sprite` module exports the `generateSprite` and `generateHouseAsset` functions as described in the test suite.
 
+---
+# describe('generateSprite') tests/sprite.test.js
+## Imported Code Object
+In this code snippet, `describe('generateSprite')` is a function call that is part of a testing framework, most likely Jest or Mocha. Here's a concise explanation:
+
+1. `describe()` is a function used to group related test cases.
+2. It takes two arguments:
+   - A string description ('generateSprite' in this case) that describes the group of tests.
+   - A callback function containing the actual test cases.
+3. This particular `describe` block is focused on testing the `generateSprite` function.
+4. Inside this block, you can define multiple test cases using `it()` or `test()` functions.
+5. The tests within this block will all be related to the functionality of `generateSprite`.
+
+In essence, `describe('generateSprite')` is creating a test suite specifically for the `generateSprite` function, allowing for organized and focused testing of that particular piece of functionality.
+
+### Third Party Libaries
+
+Based on the provided code snippet, this test function appears to use the 'sharp' library, which is a third-party image processing library for Node.js, to analyze the metadata of the generated sprite image.
+
+### Code Example
+
+Certainly! Here's a brief code example of how to use the `generateSprite` function based on the test case provided:
+
+```javascript
+const sprite = require('./sprite'); // Assuming the function is in a file named sprite.js
+
+async function main() {
+  try {
+    const description = 'knight';
+    const options = { iterations: 1 };
+    
+    const result = await sprite.generateSprite(description, options);
+    
+    if (result && result.length > 0) {
+      const { messages, image } = result[0];
+      
+      console.log('Sprite generated successfully');
+      console.log('Frame information:', JSON.parse(messages.content));
+      console.log('Image data (base64):', image);
+      
+      // You can further process the image here, e.g., save it to a file
+      // const buffer = Buffer.from(image.split(',')[1], 'base64');
+      // await sharp(buffer).toFile('knight_sprite.png');
+    } else {
+      console.log('No sprite generated');
+    }
+  } catch (error) {
+    console.error('Error generating sprite:', error);
+  }
+}
+
+main();
+```
+
+This example demonstrates how to use the `generateSprite` function:
+
+1. We import the module containing the `generateSprite` function.
+2. We define the sprite description ('knight') and options (1 iteration).
+3. We call `generateSprite` with these parameters and await the result.
+4. We check if the result exists and has at least one item.
+5. If successful, we log the frame information and the base64-encoded image data.
+6. Optionally, you could uncomment the last two lines to save the image to a file using the `sharp` library.
+
+Remember to install any necessary dependencies (like `sharp`) and handle any potential errors appropriately in your actual implementation.
+
   
