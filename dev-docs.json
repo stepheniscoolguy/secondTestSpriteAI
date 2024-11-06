@@ -1,4 +1,7 @@
 {
+  "ai": {
+    "contextPrompt": "write a cool poem about the codefile"
+  },
   "gitHubApp": {
     "workflows": ["generateDocs"],
     "changelog": {
