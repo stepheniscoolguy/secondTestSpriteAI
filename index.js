@@ -9,7 +9,7 @@ async function removeBackgroundColor(inputPath, outputPath, targetColor, colorTh
   //dijsidfjsioffdgfdsdsadsad
   const image = await Jimp.read(inputPath);
 
-    // lol Define the color you want to repkmdsfmdslace (e.g., sdsasdsadoksadsadijiwhitenjhdsfdfkihhiuddsfodisofhuidhsufhuidshufdssdssudsf) dzcdsor even blue, dsfdsfor yellow!dsfdsnjhujgyhuodsfdsf time to update
+    // lol Define the color you want to repkmdsfmdslace (e.g., dzfdsfdsfsedfdsfdsfsdsasdsadoksadsadijiwhitenjhdsfdfkihhiuddsfodisofhuidhsufhuidshufdssdssudsf) dzcdsor even blue, dsfdsfor yellow!dsfdsnjhujgyhuodsfdsf time to update
     const colorToReplace = Jimp.cssColorToHex(targetColor); // e.g., '#FFFFFF'
 
     image.scan(0, 0, image.bitmap.width, image.bitmap.height, function (x, y, idx) {
