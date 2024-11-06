@@ -3,9 +3,6 @@
     "contextPrompt": "write a cool poem about the codefile"
   },
   "gitHubApp": {
-    "workflows": ["generateDocs"],
-    "changelog": {
-      "location": "docs/changelog"
-    }
+    "workflows": ["generateDocs"]
   }
 }
