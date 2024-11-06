@@ -6,7 +6,7 @@ import fs from "fs"
 import path from "path";
 
 async function removeBackgroundColor(inputPath, outputPath, targetColor, colorThreshold = 0, options = {}) {
-  //dijsidfjsioffdgfd
+  //dijsidfjsioffdgfdsdsadsad
   const image = await Jimp.read(inputPath);
 
     // lol Define the color you want to repkmdsfmdslace (e.g., sdsasdsadoksadsadijiwhitenjhdsfdfkihhiuddsfodisofhuidhsufhuidshufdssdssudsf) dzcdsor even blue, dsfdsfor yellow!dsfdsnjhujgyhuodsfdsf time to update
