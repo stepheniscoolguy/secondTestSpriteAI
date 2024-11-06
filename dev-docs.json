@@ -1,6 +1,6 @@
 {
   "gitHubApp": {
-    "workflows": ["generateDocs", "generateChangelog"],
+    "workflows": ["generateDocs"],
     "changelog": {
       "location": "docs/changelog"
     }
