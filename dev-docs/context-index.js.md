@@ -18,18 +18,20 @@ The code is designed to automate the creation of game assets, allowing developer
 ---
 # removeBackgroundColor index.js
 ## Imported Code Object
-The `removeBackgroundColor` function in this code snippet is an asynchronous function designed to remove a specific background color from an image. Here's a concise explanation of its purpose and functionality:
+The `removeBackgroundColor` function in this code snippet is an asynchronous function that processes an image to remove a specific background color. Here's a concise explanation of its purpose and functionality:
 
-1. It takes an input image, a target color, and optional parameters like color threshold and output path.
+1. It takes an input image file, an output path, a target color, and optional parameters.
 
-2. The function uses the Jimp library to read and process the image.
+2. The function uses the Jimp library to read and manipulate the image.
 
-3. It scans through each pixel of the image, comparing its color to the target color.
+3. It converts the target color to a hex value.
 
-4. If a pixel's color is within the specified threshold of the target color, it sets that pixel's alpha value to 0, making it transparent.
+4. The function then scans every pixel of the image, comparing each pixel's color to the target color.
 
-5. Finally, it saves the processed image with the background color removed to the specified output path.
+5. If a pixel's color is within the specified threshold of the target color, it makes that pixel transparent by setting its alpha value to 0.
 
-In essence, this function automates the process of removing a specific background color from an image, useful for tasks like creating transparent PNG images from images with solid color backgrounds.
+6. Finally, it saves the processed image to the specified output path and returns the result.
+
+In essence, this function allows you to remove a specific background color from an image, replacing it with transparency.
 
   
