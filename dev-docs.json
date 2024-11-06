@@ -1,26 +1,8 @@
 {
-  "quickDoc": {
-    "variablesAndFunctions": {
-      "prompts": [
-        {
-          "question": "In a brief sentence, does this function use any third party APIs or Libraries",
-          "title": "Third Party Libraries"
-        },
-        {
-          "question": "Can you provide a brief code example of how to use the code?",
-          "title": "Code Example"
-        }
-      ]
+  "gitHubApp": {
+    "workflows": ["generateDocs", "generateChangelog"],
+    "changelog": {
+      "location": "docs/changelog"
     }
-  },
-  "ai": {
-    "populateDoc": "dev-docs/populate.md",
-    "docSubFolder": "Sprite methods and Functions",
-    "internalTypeFilters": [
-        "class",
-        "method",
-        "function"
-    ]
-  },
-  "integrations": ["google_drive"]
+  }
 }
